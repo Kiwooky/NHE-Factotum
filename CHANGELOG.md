@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.9 (build 9) — lighter on CPU
+- Bypassed, it now passes the dry signal and sleeps: about 0.03× Taj Mahal instead of 1.9×.
+- The Octave and Starve circuits only run while they're on or fading, and the Contour and Tone
+  filters are only recalculated while those knobs move. Defaults 1.90× → 1.66× Taj Mahal
+  (Duo build under emulation; the Duo's own meter is the real number).
+- Sound unchanged: the same as 1.0.8 to −124 dB in every steady setting. The octave now starts
+  with its coupling cap already charged, so switching it on can't thump.
+
 ## 1.0.8 (build 8) — the face, and a GitHub repo
 - Niels's faceplate: five knobs on a 101-frame filmstrip, Starve button, On/Off and Octave
   footswitches, and the light panel in the middle.

@@ -148,7 +148,7 @@ protected:
     const char* getDescription() const override { return "LM386 drive with a Foxx-style octave, a Klon-style clean blend and a Shredmaster-style Contour. Started from Colin Raffel's Parallel Universe schematic."; }
     const char* getMaker()       const override { return DISTRHO_PLUGIN_BRAND; }
     const char* getLicense()     const override { return "GPL-3.0-or-later"; }
-    uint32_t    getVersion()     const override { return d_version(1, 0, 8); }   // = lv2:minorVersion 2, microVersion 8
+    uint32_t    getVersion()     const override { return d_version(1, 0, 9); }   // = lv2:minorVersion 2, microVersion 9
     int64_t     getUniqueId()    const override { return d_cconst('n', 'F', 'c', 't'); }
 
     void initParameter(uint32_t index, Parameter& p) override
@@ -235,6 +235,24 @@ protected:
         const float contT   = clampf(fParams[kContour] * 0.1f, 0.0f, 1.0f);
         const float toneT   = clampf(fParams[kTone], 0.0f, 10.0f);
 
+        // bypassed and faded out: pass the dry signal and skip the circuit (v1.0.9). It starts
+        // from clean filters when switched back on, fading in over 10 ms as before
+        if (bypass && fWet < 1e-4f && !fFirst) {
+            if (out != in) std::memcpy(out, in, sizeof(float) * frames);
+            fWet = 0.0f;
+            fParams[kGlow] = 0.0f;
+            fAsleep = true;
+            return;
+        }
+        if (fAsleep) {
+            fAsleep = false;
+            reset();
+            fOctLive = false;
+            fG = g01; fCm = cmT; fOct = octT; fAtt = attT; fLev = levT; fRail = railT; fStarve = starveT;
+            fContK = contT; fToneK = toneT;
+            updateCoefs();
+        }
+
         if (fFirst) {                    // controls arrive with the first run()
             fFirst = false;
             fG = g01; fCm = cmT; fOct = octT; fAtt = attT; fLev = levT; fRail = railT; fStarve = starveT; fWet = wetT;
@@ -255,7 +273,14 @@ protected:
             fToneK  += fSmooth * (toneT - fToneK);
             // the supply: settles slowly, and sags under load when starved
             fRail   += fRailSm * (railT - fRail);
-            if (++fCtl >= 16) { fCtl = 0; updateCoefs(); }
+            if (++fCtl >= 16) {                                         // coefficients only while Contour or Tone move (v1.0.9)
+                fCtl = 0;
+                if (std::fabs(contT - fContK) > 1e-5f || std::fabs(toneT - fToneK) > 1e-4f) {
+                    updateCoefs(); fCoefsSettled = false;
+                } else if (!fCoefsSettled) {
+                    fContK = contT; fToneK = toneT; updateCoefs(); fCoefsSettled = true;
+                }
+            }
 
             const float rail = fRail - 1.2f * fStarve * fEnv;
             // the LM386 idles at half supply; it swings closer to ground than to the top
@@ -278,6 +303,12 @@ protected:
             // make-ups, the fuzz only. On the pedal each footswitch/toggle's second pole puts a
             // resistor in parallel with the fuzz's mixing resistor (100k): Starve 18k, Octave 150k
             const float makeup = 1.0f + (kStarveBoost - 1.0f) * fStarve + kOctBoost * fOct;
+            // the octave circuit only runs while it's on or fading (v1.0.9). It starts with its
+            // coupling cap charged to the signal, so switching on doesn't thump
+            const bool octOn = octT > 0.5f || fOct > 1e-6f;
+            if (!octOn) fOct = 0.0f;
+            const bool gate = fStarve > 1e-6f;                          // the starve gate likewise
+            if (!gate && starveT < 0.5f) fStarve = 0.0f;
             float pk = 0.0f;
             for (int ph = 0; ph < kOS; ++ph) {
                 float xo = 0.0f;
@@ -290,15 +321,19 @@ protected:
                 // v1.0.6: the diodes are pre-biased (their returns sit at about 0.15 V, set by a
                 // trimmer on the pedal), so only about 0.05 V of the germanium's 0.2 V turn-on is
                 // left. The octave fades with the note instead of gating: sustain 1.1 s -> 2.2 s.
-                const float up = 0.99f * xo, dn = -0.93f * xo;
-                const float wu = up - 0.05f, wd = dn - 0.05f;          // Ge diode, pre-biased
-                const float r = (wu > 0.0f ? wu * wu / (wu + 0.04f) : 0.0f)
-                              + (wd > 0.0f ? wd * wd / (wd + 0.04f) : 0.0f);
-                fOh = r - fOx + fOr * fOh + 1e-18f;
-                fOx = r;
-                const float xf = xo + fOct * (fOh - xo);               // the Octave footswitch picks the feed
+                float xf = xo;
+                if (octOn) {
+                    const float up = 0.99f * xo, dn = -0.93f * xo;
+                    const float wu = up - 0.05f, wd = dn - 0.05f;      // Ge diode, pre-biased
+                    const float r = (wu > 0.0f ? wu * wu / (wu + 0.04f) : 0.0f)
+                                  + (wd > 0.0f ? wd * wd / (wd + 0.04f) : 0.0f);
+                    if (!fOctLive) { fOctLive = true; fOx = r; fOh = 0.0f; }
+                    fOh = r - fOx + fOr * fOh + 1e-18f;
+                    fOx = r;
+                    xf = xo + fOct * (fOh - xo);                       // the Octave footswitch picks the feed
+                }
                 float v = fAtt * xf;
-                v = v * v * v / (v * v + d2);                          // starve: small signals die (gating)
+                if (gate) v = v * v * v / (v * v + d2);                // starve: small signals die (gating)
                 const float u = kAmpGain * v;
                 const float y = u > 0.0f ? lp * softClip(u * ilp) : ln * softClip(u * iln);
                 pk = std::fmax(pk, std::fabs(y));
@@ -307,6 +342,7 @@ protected:
                 fDnPos = (fDnPos + kTaps - 1) % kTaps;
             }
             // decimate: newest sample is at fDnPos + 1
+            if (!octOn) fOctLive = false;
             const float* q = &fDn[fDnPos + 1];
             float yd = 0.0f;
             for (int j = 0; j < kTaps; ++j) yd += kFir[j] * q[j];
@@ -408,7 +444,7 @@ private:
     float fDc = 0.0f, fDcX = 0.0f, fTone = 0.0f, fEnv = 0.0f;
     float fLevel = 0.0f;
     float fCm = 1.0f, fOct = 0.0f, fOh = 0.0f, fOx = 0.0f, fOr = 0.9997f;
-    bool  fFirst = true;
+    bool  fFirst = true, fAsleep = false, fOctLive = false, fCoefsSettled = false;
 
     DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FactotumPlugin)
 };

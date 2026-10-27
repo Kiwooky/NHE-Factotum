@@ -42,6 +42,9 @@ port only before `lv2_enabled`, with a version bump and a "re-add the plugin" no
 - Contour 10: 700 Hz −24.1 dB vs 100 Hz, −20.7 dB vs 3 kHz, the same at 44.1, 48 and 96 kHz.
   Contour 5: −6.1 dB.
 - Aliasing below a 4 kHz sine at Gain 10: −168 dB (−186 dB with the octave).
+- CPU, relative only (Duo build under qemu, vs NHE Taj Mahal): defaults 1.66×, Starve 1.69×,
+  Octave 1.90×, both 1.85×, bypassed 0.03×. Most of it is the 4× oversampling around the LM386
+  (two 64-tap filters). *The Duo's own meter is the real number.*
 - Glow: peak 0.82 at guitar level, 0.18 twenty dB down, dark within 0.6 s of silence and while
   bypassed.
 
