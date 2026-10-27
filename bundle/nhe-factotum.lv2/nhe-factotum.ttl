@@ -1,0 +1,103 @@
+@prefix doap:   <http://usefulinc.com/ns/doap#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:mod-cookbook:nhe-factotum>
+    a lv2:Plugin , lv2:DistortionPlugin ;
+    doap:name "Factotum" ;
+    doap:license <http://spdx.org/licenses/GPL-3.0-or-later.html> ;
+    doap:maintainer [ foaf:name "New Horizon" ] ;
+    rdfs:comment "LM386 drive with a Foxx-style octave, a Klon-style clean blend and a Shredmaster-style Contour. Started from Colin Raffel's Parallel Universe schematic." ;
+    lv2:minorVersion 2 ;
+    lv2:microVersion 8 ;
+    lv2:optionalFeature lv2:hardRTCapable ;
+    lv2:requiredFeature <http://lv2plug.in/ns/ext/options#options> ,
+                        <http://lv2plug.in/ns/ext/urid#map> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/options#interface> ;
+    lv2:port [
+        a lv2:InputPort , lv2:AudioPort ;
+        lv2:index 0 ;
+        lv2:symbol "in" ;
+        lv2:name "In"
+    ] , [
+        a lv2:OutputPort , lv2:AudioPort ;
+        lv2:index 1 ;
+        lv2:symbol "out" ;
+        lv2:name "Out"
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:symbol "gain" ;
+        lv2:name "Gain" ;
+        lv2:default 5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 10
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 3 ;
+        lv2:symbol "clean" ;
+        lv2:name "Clean" ;
+        lv2:default 7 ;
+        lv2:minimum 0 ;
+        lv2:maximum 10
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 4 ;
+        lv2:symbol "contour" ;
+        lv2:name "Contour" ;
+        lv2:default 5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 10
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:symbol "tone" ;
+        lv2:name "Tone" ;
+        lv2:default 5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 10
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:symbol "level" ;
+        lv2:name "Level" ;
+        lv2:default 5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 10
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:symbol "starve" ;
+        lv2:name "Starve" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer , lv2:toggled
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:symbol "octave" ;
+        lv2:name "Octave" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer , lv2:toggled
+    ] , [
+        a lv2:OutputPort , lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:symbol "glow" ;
+        lv2:name "Glow" ;
+        lv2:minimum 0 ;
+        lv2:maximum 1
+    ] , [
+        a lv2:InputPort , lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:symbol "lv2_enabled" ;
+        lv2:name "Enabled" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:integer , lv2:toggled ;
+        lv2:designation lv2:enabled
+    ] .

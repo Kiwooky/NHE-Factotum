@@ -1,0 +1,135 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:mod-cookbook:nhe-factotum#preset-a-bit-of-an-edge>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "A bit of an edge" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 5.6 ] ,
+             [ lv2:symbol "clean" ; pset:value 7 ] ,
+             [ lv2:symbol "contour" ; pset:value 3.7 ] ,
+             [ lv2:symbol "tone" ; pset:value 5 ] ,
+             [ lv2:symbol "level" ; pset:value 5.5 ] ,
+             [ lv2:symbol "starve" ; pset:value 0 ] ,
+             [ lv2:symbol "octave" ; pset:value 0 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-death-valley>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Death Valley" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 10 ] ,
+             [ lv2:symbol "clean" ; pset:value 7 ] ,
+             [ lv2:symbol "contour" ; pset:value 4.2 ] ,
+             [ lv2:symbol "tone" ; pset:value 1.5 ] ,
+             [ lv2:symbol "level" ; pset:value 5.39 ] ,
+             [ lv2:symbol "starve" ; pset:value 1 ] ,
+             [ lv2:symbol "octave" ; pset:value 0 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-bass-sic>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Bass sic" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 10 ] ,
+             [ lv2:symbol "clean" ; pset:value 7.8 ] ,
+             [ lv2:symbol "contour" ; pset:value 5.9 ] ,
+             [ lv2:symbol "tone" ; pset:value 6.9 ] ,
+             [ lv2:symbol "level" ; pset:value 5.3 ] ,
+             [ lv2:symbol "starve" ; pset:value 1 ] ,
+             [ lv2:symbol "octave" ; pset:value 1 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-blown-speaker>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Blown speaker" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 10 ] ,
+             [ lv2:symbol "clean" ; pset:value 7.8 ] ,
+             [ lv2:symbol "contour" ; pset:value 0.7 ] ,
+             [ lv2:symbol "tone" ; pset:value 6.9 ] ,
+             [ lv2:symbol "level" ; pset:value 5.3 ] ,
+             [ lv2:symbol "starve" ; pset:value 0 ] ,
+             [ lv2:symbol "octave" ; pset:value 0 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-7ender-8lender>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "7ender 8lender" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 9.6 ] ,
+             [ lv2:symbol "clean" ; pset:value 8.8 ] ,
+             [ lv2:symbol "contour" ; pset:value 0 ] ,
+             [ lv2:symbol "tone" ; pset:value 10 ] ,
+             [ lv2:symbol "level" ; pset:value 5.3 ] ,
+             [ lv2:symbol "starve" ; pset:value 0 ] ,
+             [ lv2:symbol "octave" ; pset:value 1 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-dandy-warhol>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Dandy Warhol" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 7.9 ] ,
+             [ lv2:symbol "clean" ; pset:value 9.1 ] ,
+             [ lv2:symbol "contour" ; pset:value 2.3 ] ,
+             [ lv2:symbol "tone" ; pset:value 8.6 ] ,
+             [ lv2:symbol "level" ; pset:value 5.39 ] ,
+             [ lv2:symbol "starve" ; pset:value 0 ] ,
+             [ lv2:symbol "octave" ; pset:value 0 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-garage-fuzz>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Garage Fuzz" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 10 ] ,
+             [ lv2:symbol "clean" ; pset:value 0 ] ,
+             [ lv2:symbol "contour" ; pset:value 0 ] ,
+             [ lv2:symbol "tone" ; pset:value 10 ] ,
+             [ lv2:symbol "level" ; pset:value 4.9 ] ,
+             [ lv2:symbol "starve" ; pset:value 1 ] ,
+             [ lv2:symbol "octave" ; pset:value 1 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-clean-presence>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Clean presence" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 0 ] ,
+             [ lv2:symbol "clean" ; pset:value 10 ] ,
+             [ lv2:symbol "contour" ; pset:value 0 ] ,
+             [ lv2:symbol "tone" ; pset:value 10 ] ,
+             [ lv2:symbol "level" ; pset:value 6.4 ] ,
+             [ lv2:symbol "starve" ; pset:value 1 ] ,
+             [ lv2:symbol "octave" ; pset:value 1 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-mid-boost-od>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Mid boost OD" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 6.3 ] ,
+             [ lv2:symbol "clean" ; pset:value 5.4 ] ,
+             [ lv2:symbol "contour" ; pset:value 4.4 ] ,
+             [ lv2:symbol "tone" ; pset:value 5 ] ,
+             [ lv2:symbol "level" ; pset:value 5.5 ] ,
+             [ lv2:symbol "starve" ; pset:value 0 ] ,
+             [ lv2:symbol "octave" ; pset:value 0 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-contour-fuzz>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Contour Fuzz" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 10 ] ,
+             [ lv2:symbol "clean" ; pset:value 8.4 ] ,
+             [ lv2:symbol "contour" ; pset:value 1.5 ] ,
+             [ lv2:symbol "tone" ; pset:value 10 ] ,
+             [ lv2:symbol "level" ; pset:value 5.39 ] ,
+             [ lv2:symbol "starve" ; pset:value 1 ] ,
+             [ lv2:symbol "octave" ; pset:value 0 ] .
+
+<urn:mod-cookbook:nhe-factotum#preset-contour-fuzz-ii>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Contour Fuzz II" ;
+    lv2:port [ lv2:symbol "gain" ; pset:value 9 ] ,
+             [ lv2:symbol "clean" ; pset:value 10 ] ,
+             [ lv2:symbol "contour" ; pset:value 3 ] ,
+             [ lv2:symbol "tone" ; pset:value 8 ] ,
+             [ lv2:symbol "level" ; pset:value 5.39 ] ,
+             [ lv2:symbol "starve" ; pset:value 1 ] ,
+             [ lv2:symbol "octave" ; pset:value 0 ] .

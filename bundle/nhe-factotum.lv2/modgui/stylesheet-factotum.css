@@ -1,0 +1,56 @@
+/* Factotum - New Horizon Electronics (325 x 400 CSS px). Artwork by Niels.
+   Images are 2x, drawn at their 1x size; positions measured from the holes in the face
+   art and fitted to the approved mockup. */
+.factotum{{{cns}}} {
+    position: absolute;
+    width: 325px;
+    height: 400px;
+    background-image: url(/resources/background.jpg{{{ns}}});
+    background-size: 325px 400px;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
+
+/* light panel over the black cutout. Lit until the script runs (and for the screenshot);
+   then its opacity follows the Glow output. The panel stays on its own compositor layer for
+   good (will-change, hidden backface), or the browser re-renders the pedal under it as it fades */
+.factotum{{{cns}}} .ft-panel { position: absolute; left: 126.5px; top: 100.5px; width: 72px; height: 191.5px; z-index: 18; pointer-events: none;
+    opacity: 1; transition: opacity .12s linear; will-change: opacity; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.factotum{{{cns}}} .ft-panel-layer { position: absolute; left: 0; top: 0; width: 72px; height: 191.5px; background-size: 72px 191.5px; background-repeat: no-repeat; }
+.factotum{{{cns}}} .ft-panel-off { background-image: url(/resources/panel.png{{{ns}}}); }
+.factotum{{{cns}}} .ft-panel-on  { background-image: url(/resources/panel-starve.png{{{ns}}}); visibility: hidden; }
+.factotum{{{cns}}} .ft-panel.starve .ft-panel-off { visibility: hidden; }
+.factotum{{{cns}}} .ft-panel.starve .ft-panel-on  { visibility: visible; }
+
+/* status LEDs: nothing drawn when off, so the panel shows through */
+.factotum{{{cns}}} .ft-led { position: absolute; top: 141.5px; width: 34.5px; height: 34.5px; background-size: 34.5px 34.5px; background-repeat: no-repeat; z-index: 20; pointer-events: none; }
+.factotum{{{cns}}} .ft-led.on { background-image: url(/resources/led-on.png{{{ns}}}); }
+.factotum{{{cns}}} .ft-led-bypass { left: 128.5px; }
+.factotum{{{cns}}} .ft-led-octave { left: 164px; }
+
+/* knobs: 64 x 64 frames, 101 frames (0.1 per step on a 0..10 knob) in one horizontal 2x strip */
+.factotum{{{cns}}} .ft-knob {
+    position: absolute; width: 64px; height: 64px;
+    background-image: url(/resources/knob.png{{{ns}}}); background-size: auto 64px; background-repeat: no-repeat; background-position: 0 0;
+    cursor: pointer; z-index: 21;
+}
+.factotum{{{cns}}} .ft-gain    { left: 22px;    top: 24.5px; }
+.factotum{{{cns}}} .ft-clean   { left: 22.5px;  top: 111px; }
+.factotum{{{cns}}} .ft-level   { left: 22.5px;  top: 199px; }
+.factotum{{{cns}}} .ft-tone    { left: 239px;   top: 24.5px; }
+.factotum{{{cns}}} .ft-contour { left: 239.5px; top: 111px; }
+
+/* Starve button: latching, the ON art while starved */
+.factotum{{{cns}}} .ft-starve { position: absolute; left: 252px; top: 226px; width: 38.5px; height: 38.5px; background-image: url(/resources/starve-off.png{{{ns}}}); background-size: 38.5px 38.5px; cursor: pointer; z-index: 21; }
+.factotum{{{cns}}} .ft-starve.on { background-image: url(/resources/starve-on.png{{{ns}}}); }
+
+/* footswitches. Bypass: mod-ui sets the classes inverted (.on = bypassed, .off = effect on).
+   Octave: a plain switch, .on = octave on */
+.factotum{{{cns}}} .ft-fs { position: absolute; top: 309.5px; width: 72px; height: 72px; background-image: url(/resources/footswitch-off.png{{{ns}}}); background-size: 72px 72px; cursor: pointer; z-index: 21; }
+.factotum{{{cns}}} .ft-fs-bypass { left: 18px; }
+.factotum{{{cns}}} .ft-fs-octave { left: 235.5px; }
+.factotum{{{cns}}} .ft-fs-bypass.off,
+.factotum{{{cns}}} .ft-fs-octave.on { background-image: url(/resources/footswitch-on.png{{{ns}}}); }
+
+.factotum{{{cns}}} .mod-pedal-input,
+.factotum{{{cns}}} .mod-pedal-output { top: 150px; }

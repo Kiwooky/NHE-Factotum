@@ -1,0 +1,23 @@
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<urn:mod-cookbook:nhe-factotum>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-factotum.html> ;
+        modgui:stylesheet <modgui/stylesheet-factotum.css> ;
+        modgui:javascript <modgui/script-factotum.js> ;
+        modgui:screenshot <modgui/screenshot-factotum.png> ;
+        modgui:thumbnail <modgui/thumbnail-factotum.png> ;
+        modgui:brand "New Horizon" ;
+        modgui:label "Factotum" ;
+        modgui:monitoredOutputs [ lv2:symbol "glow" ] ;
+        modgui:port
+        [ lv2:index 0 ; lv2:symbol "gain" ;    lv2:name "Gain" ; ],
+        [ lv2:index 1 ; lv2:symbol "clean" ;   lv2:name "Clean" ; ],
+        [ lv2:index 2 ; lv2:symbol "level" ;   lv2:name "Level" ; ],
+        [ lv2:index 3 ; lv2:symbol "tone" ;    lv2:name "Tone" ; ],
+        [ lv2:index 4 ; lv2:symbol "contour" ; lv2:name "Contour" ; ],
+        [ lv2:index 5 ; lv2:symbol "starve" ;  lv2:name "Starve" ; ],
+        [ lv2:index 6 ; lv2:symbol "octave" ;  lv2:name "Octave" ; ] ;
+    ] .

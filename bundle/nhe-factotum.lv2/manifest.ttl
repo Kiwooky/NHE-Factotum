@@ -1,0 +1,64 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:mod-cookbook:nhe-factotum>
+    a lv2:Plugin , lv2:DistortionPlugin ;
+    lv2:binary <nhe-factotum_dsp.so> ;
+    rdfs:seeAlso <nhe-factotum.ttl> , <modgui.ttl> .
+
+# Factory presets
+<urn:mod-cookbook:nhe-factotum#preset-a-bit-of-an-edge>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-death-valley>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-bass-sic>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-blown-speaker>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-7ender-8lender>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-dandy-warhol>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-garage-fuzz>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-clean-presence>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-mid-boost-od>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-contour-fuzz>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .
+
+<urn:mod-cookbook:nhe-factotum#preset-contour-fuzz-ii>
+    a pset:Preset ;
+    lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:seeAlso <presets.ttl> .

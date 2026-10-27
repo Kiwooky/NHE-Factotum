@@ -1,0 +1,41 @@
+<div class="mod-pedal factotum{{{cns}}}">
+    <div mod-role="drag-handle" class="mod-drag-handle"></div>
+
+    <!-- the light panel: the circuit board lit from behind. Its opacity follows the plugin's
+         Glow output (the face script); Starve picks which art shows: red/orange off, yellow on -->
+    <div class="ft-panel">
+        <div class="ft-panel-layer ft-panel-off"></div>
+        <div class="ft-panel-layer ft-panel-on"></div>
+    </div>
+
+    <!-- status LEDs, on top of the panel so they don't fade with it -->
+    <div class="ft-led ft-led-bypass" mod-role="bypass-light"></div>
+    <div class="ft-led ft-led-octave" title="Octave"></div>
+
+    <!-- knobs: 101-frame strip -->
+    <div class="ft-knob ft-gain"    title="Gain"    mod-role="input-control-port" mod-port-symbol="gain"></div>
+    <div class="ft-knob ft-clean"   title="Clean"   mod-role="input-control-port" mod-port-symbol="clean"></div>
+    <div class="ft-knob ft-level"   title="Level"   mod-role="input-control-port" mod-port-symbol="level"></div>
+    <div class="ft-knob ft-tone"    title="Tone"    mod-role="input-control-port" mod-port-symbol="tone"></div>
+    <div class="ft-knob ft-contour" title="Contour" mod-role="input-control-port" mod-port-symbol="contour"></div>
+
+    <div class="ft-starve" title="Starve" mod-widget="switch" mod-role="input-control-port" mod-port-symbol="starve"></div>
+
+    <div class="ft-fs ft-fs-bypass" title="On/Off" mod-role="bypass"></div>
+    <div class="ft-fs ft-fs-octave" title="Octave" mod-widget="switch" mod-role="input-control-port" mod-port-symbol="octave"></div>
+
+    <div class="mod-pedal-input">
+        {{#effect.ports.audio.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.audio.input}}
+    </div>
+    <div class="mod-pedal-output">
+        {{#effect.ports.audio.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-audio-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.audio.output}}
+    </div>
+</div>
