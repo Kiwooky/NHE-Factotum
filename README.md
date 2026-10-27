@@ -58,7 +58,8 @@ Mono in, mono out. Light on CPU.
 ## Credits and licence
 
 Designed by Niels, New Horizon Electronics. Borrowing from Colin Raffel's 2006 schematic of the
-Electronic Audio Experiments Parallel Universe. The Contour network's transfer function follows 
+Electronic Audio Experiments Parallel Universe. https://experimentalistsanonymous.com/stuff/paralleluniverse/firstedition.html
+The Contour network's transfer function follows 
 davemollen's [dm-Shredmaster](https://github.com/davemollen/dm-Shredmaster).
 
 Code GPL-3.0-or-later (`LICENSE`). Artwork © 2026 New Horizon Electronics (`ARTWORK-LICENSE.md`).
