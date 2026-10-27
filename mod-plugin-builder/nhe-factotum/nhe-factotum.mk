@@ -14,7 +14,7 @@
 ######################################
 
 # <- after your first push, replace the zeros with the full 40-character commit hash
-NHE_FACTOTUM_VERSION = 0000000000000000000000000000000000000000
+NHE_FACTOTUM_VERSION = 5c0fb5fe58503855a7a800ac90372cdf8c4f1e52
 NHE_FACTOTUM_SITE = https://github.com/Kiwooky/NHE-Factotum.git
 NHE_FACTOTUM_SITE_METHOD = git
 NHE_FACTOTUM_GIT_SUBMODULES = y
