@@ -1,18 +1,19 @@
 # Factotum
 
-*New Horizon Electronics · a drive that does a bit of everything, for MOD Duo, Duo X and Dwarf*
+*by New Horizon Electronics · driven by a need to turn it's hand at anything, for MOD Duo, Duo X and Dwarf*
 
 ![Factotum on a MOD pedalboard](factotum-face.png)
 
-## Jack of all trades
+## Go! Do everything!
 
-The Factotum started life as a tribute to the EAE Parallel Universe and wandered off to become its
-own thing. At its heart is an LM386: the little chip amp that's been making tiny practice amps
-sound huge for decades. Around it sit a clean blend that keeps your pick attack in the room, a
-mid-scoop borrowed from the Marshall Shredmaster, a supply you can starve until it sputters, and a
-vintage octave-up on its own footswitch.
+The Factotum started life as my tribute to the EA Parallel Universe, but wandered off to become its
+own thing. At its heart is an LM386: a favourite of the DIY community that's been making tiny practice amps
+and gain pedals sound huge for decades. Colin's (Experimentalists Anonymous) original "starve" switch remained
+to provide sweet spluttering gated fuzz, but instead of the oscillator it gained a clean blend that keeps your 
+pick attack in the room, a mid-scoop borrowed from the Marshall Shredmaster, and a vintage octave-up on its own footswitch. 
 
-Overdrive, fuzz, gated splutter, scooped metal, ring-mod-ish octave squeal. It's all in there.
+Overdrive, fuzz, gated splutter, scooped metal, ring-mod-ish octave squeal. It's all in there. And the best part is
+that the way it was modelled still allows it to be built as a physical analog pedal.
 
 ## The controls
 
@@ -26,14 +27,8 @@ Overdrive, fuzz, gated splutter, scooped metal, ring-mod-ish octave squeal. It's
 - **Starve**: drops the chip's supply to about 3.6 V. Lower, more lopsided clipping, and quiet notes
   gate and sputter as they decay. Volume is matched from about noon on the Gain knob up, so you can stomp it mid-song.
 - **Octave** (footswitch): a Foxx Tone Machine-style octave up. Germanium diodes fold the wave in
-  half, so the pitch doubles. Best on single notes above the 12th fret, Blue Orchid-style.
+  half, so the pitch doubles. Best on single notes above the 12th fret.
 - **On/Off** (footswitch).
-
-## The light panel
-
-The window in the middle of the pedal shows the circuit board, lit from behind. It glows as you
-play and fades as notes die away. Starve switches the light from red-orange to yellow. The two LEDs
-are the On/Off (left) and Octave (right) status lights.
 
 ## Presets
 
@@ -62,9 +57,9 @@ Mono in, mono out. Light on CPU.
 
 ## Credits and licence
 
-Designed by Niels, New Horizon Electronics. Started from Colin Raffel's 2006 schematic of the
-Electronic Audio Experiments Parallel Universe, with thanks to Colin. The Contour network's
-transfer function follows davemollen's [dm-Shredmaster](https://github.com/davemollen/dm-Shredmaster).
+Designed by Niels, New Horizon Electronics. Borrowing from Colin Raffel's 2006 schematic of the
+Electronic Audio Experiments Parallel Universe. The Contour network's transfer function follows 
+davemollen's [dm-Shredmaster](https://github.com/davemollen/dm-Shredmaster).
 
 Code GPL-3.0-or-later (`LICENSE`). Artwork © 2026 New Horizon Electronics (`ARTWORK-LICENSE.md`).
 Built with [DPF](https://github.com/DISTRHO/DPF) and the
