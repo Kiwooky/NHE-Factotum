@@ -148,7 +148,7 @@ protected:
     const char* getDescription() const override { return "LM386 drive with a Foxx-style octave, a Klon-style clean blend and a Shredmaster-style Contour. Started from Colin Raffel's Parallel Universe schematic."; }
     const char* getMaker()       const override { return DISTRHO_PLUGIN_BRAND; }
     const char* getLicense()     const override { return "GPL-3.0-or-later"; }
-    uint32_t    getVersion()     const override { return d_version(1, 0, 9); }   // = lv2:minorVersion 2, microVersion 9
+    uint32_t    getVersion()     const override { return d_version(1, 0, 10); }   // = lv2:minorVersion 2, microVersion 10
     int64_t     getUniqueId()    const override { return d_cconst('n', 'F', 'c', 't'); }
 
     void initParameter(uint32_t index, Parameter& p) override

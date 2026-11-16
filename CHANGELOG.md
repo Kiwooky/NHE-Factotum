@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.10 (build 10) — preset names in the manifest
+
+- Preset names are now listed in `manifest.ttl` as well as `presets.ttl` (`rdfs:label`, as DPF writes them), so a host can show the names without opening the presets file. Same presets, same sound.
+
 ## 1.0.9 (build 9) — lighter on CPU
 - Bypassed, it now passes the dry signal and sleeps: about 0.03× Taj Mahal instead of 1.9×.
 - The Octave and Starve circuits only run while they're on or fading, and the Contour and Tone

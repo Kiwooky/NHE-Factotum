@@ -11,54 +11,65 @@
 <urn:mod-cookbook:nhe-factotum#preset-a-bit-of-an-edge>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "A bit of an edge" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-death-valley>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Death Valley" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-bass-sic>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Bass sic" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-blown-speaker>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Blown speaker" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-7ender-8lender>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "7ender 8lender" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-dandy-warhol>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Dandy Warhol" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-garage-fuzz>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Garage Fuzz" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-clean-presence>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Clean presence" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-mid-boost-od>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Mid boost OD" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-contour-fuzz>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Contour Fuzz" ;
     rdfs:seeAlso <presets.ttl> .
 
 <urn:mod-cookbook:nhe-factotum#preset-contour-fuzz-ii>
     a pset:Preset ;
     lv2:appliesTo <urn:mod-cookbook:nhe-factotum> ;
+    rdfs:label "Contour Fuzz II" ;
     rdfs:seeAlso <presets.ttl> .
